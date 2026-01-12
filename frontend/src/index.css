@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #352643;
+ color:  rgb(220, 172, 25);
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}/* Input field styling */
+#main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+#ontainer {
+  height: 500px;
+  width: 600px;
+  background-color: #110e39;
+  color: rgb(220, 172, 25);
+margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+#ontainer input {
+  width: 70%;
+  padding: 12px 15px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  outline: none;
+  background-color: #1c1a4a;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Input hover & focus */
+#ontainer input::placeholder {
+  color: #bdbdbd;
+}
+
+#ontainer input:focus {
+  border-color: #f5e80a;
+  box-shadow: 0 0 8px rgba(245, 232, 10, 0.6);
+}
+
+/* Button styling */
+#ontainer button {
+  margin-top: 10px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f5e80a, #ff9f1c);
+  color: #110e39;
+  transition: all 0.3s ease;
+}
+
+/* Button hover effect */
+#ontainer button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255, 159, 28, 0.4);
+}
+
+/* Button active click */
+#ontainer button:active {
+  transform: scale(0.97);
+}
