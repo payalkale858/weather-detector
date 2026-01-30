@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-
+import axios from "axios";
 
 
 function App() {
@@ -8,31 +8,34 @@ function App() {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
 
-  const fetchWeather = async () => {
-    setError("");
+  const fetchWeather = async()=> {setError("");
     setWeather(null);
 
     if (!city.trim()) {
       setError("Please enter a city name");
       return;
     }
+    axios.get(`http://127.0.0.1:8000/api/weather/?city=${city}`)
+    .then((responce)=>{
+      setWeather(responce.data)
+    })
+    .catch((error)=>{
+      alert("Server not responding. Try again later.")
 
-    try {
-      const response = await fetch(
-        `http://127.0.0.1:8000/api/weather/?city=${city}`
-      );
+    })
 
-      const data = await response.json();
+    // try {
+    //   const response = await fetch(`http://127.0.0.1:8000/api/weather/?city=${city}`);
 
-      if (!response.ok) {
-        setError("Please check the spelling or enter a valid city");
-        return;
-      }
+    //   const data = await response.json();
 
-      setWeather(data);
-    } catch (err) {
-      setError("Server not responding. Try again later.");
-    }
+    //   if (!response.ok) {
+    //     setError("Please check the spelling or enter a valid city");
+    //     return;
+    //   }setWeather(data);
+    // } catch (err) {
+    //   setError("Server not responding. Try again later.");
+    // }
   };
 
   return (
@@ -41,9 +44,7 @@ function App() {
       <div id="ontainer" style={{ textAlign: "center", marginTop: "15px" }}>
 
         <h1>Enter Location</h1>
-        <input
-          type="text"
-          placeholder="Enter city"
+        <input type="text" placeholder="Enter city"
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />

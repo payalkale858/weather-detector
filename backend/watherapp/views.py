@@ -4,6 +4,10 @@ from rest_framework.response import Response
 import requests
 
 API_KEY = 'a461e08a31b99c4052f2aa9ca36cc4b8'
+from django.shortcuts import render
+
+def frontend(request):
+    return render(request, "index.html")
 
 @api_view(['GET'])
 def get_weather(request):
